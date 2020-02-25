@@ -14,7 +14,10 @@ class CreateTodoDetailsTable extends Migration
     public function up()
     {
         Schema::create('todo_details', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
+            $table->unsignedInteger('todo_id');
+            $table->string('name', 100);
+            $table->boolean('status');
             $table->timestamps();
         });
     }
